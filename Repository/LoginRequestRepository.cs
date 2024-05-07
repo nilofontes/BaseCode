@@ -30,14 +30,14 @@ namespace BaseCode.Repository
             }
         }
 
-        public void UpdateRefreshToken(LoginRequest loginrequest,string refreshToken)
+        public void UpdateRefreshToken(LoginRequest loginRequest,string refreshToken)
         {
             var sql = @"update UserToken set RefreshToken = @RefreshToken where UserID = @UserID";
 
             var parameters = new
             {
                 RefreshToken = refreshToken,
-                UserID = loginrequest.UserId
+                UserID = loginRequest.Id
             };
 
             using (_connection)
